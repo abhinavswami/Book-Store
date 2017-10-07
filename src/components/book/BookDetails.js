@@ -16,9 +16,9 @@ export default class BookDetails extends React.Component {
                 <div className="media-body">
                     <h4 className="media-heading">Title</h4>
                     <ul>
-                        <li><strong>Author: </strong> Author</li>
-                        <li><strong>Price: </strong> Price</li>
-                        <li><strong>Year: </strong> Year</li>
+                        <li><strong>Author: </strong> {this.props.book.author}</li>
+                        <li><strong>Price: </strong> {this.props.book.price}</li>
+                        <li><strong>Year: </strong> {this.props.book.year}</li>
                         <br/>
                         <button className="btn btn-primary">Buy</button>
                     </ul>
