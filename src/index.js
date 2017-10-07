@@ -7,12 +7,13 @@ import {render} from 'react-dom';
 import {Router} from 'react-router-dom';
 import {createHashHistory} from 'history';
 import Routes from './routes';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './store/configureStore';
 import App from './components/App';
+import * as bookActions from './actions/bookActions';
 
 const store = configureStore();
 const history = createHashHistory();
+store.dispatch(bookActions.fetchBooks());
 render(
     <Provider store={store}>
     <Router history={history}>
