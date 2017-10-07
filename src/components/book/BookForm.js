@@ -12,8 +12,11 @@ class BookForm extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
 
-    let loginInput = this.refs.titleInput.value;
-    console.log(this);
+    let loginInput = {title: this.refs.titleInput.value,
+      author: this.refs.authorInput.value,
+      price: this.refs.priceInput.value,
+      year: this.refs.yearInput.value
+    };
     this.props.submitBook(loginInput);
     // Reset form
     e.target.reset();
@@ -22,7 +25,6 @@ class BookForm extends React.Component{
 
   render(){
     // Collector variables
-    let titleInput, authorInput, priceInput, yearInput = null;
     return (
       <form ref="form" onSubmit={this.handleSubmit}
             className="form-horizontal"
@@ -44,7 +46,7 @@ class BookForm extends React.Component{
             <input
               type="text"
               name="author"
-              ref={node => authorInput = node}
+              ref="authorInput"
               className="form-control" />
           </div>
         </div>
@@ -55,7 +57,7 @@ class BookForm extends React.Component{
             <input
               type="number"
               name="price"
-              ref={node => priceInput = node}
+              ref="priceInput"
               className="form-control" />
           </div>
         </div>
@@ -66,7 +68,7 @@ class BookForm extends React.Component{
             <input
               type="text"
               name="year"
-              ref={node => yearInput = node}
+              ref="yearInput"
               className="form-control" />
           </div>
         </div>
